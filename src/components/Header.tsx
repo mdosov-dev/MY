@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
 import { Link, NavLink, useLocation } from 'react-router-dom'
+import { MINISTRY_AREAS } from '../lib/ministryData'
 
 interface NavChild {
   label: string
@@ -63,6 +64,8 @@ export default function Header() {
   const [mobileOpen, setMobileOpen] = useState(false)
   const [openDropdown, setOpenDropdown] = useState<string | null>(null)
   const [mobileExpanded, setMobileExpanded] = useState<string | null>(null)
+  const [selectedMinistry, setSelectedMinistry] = useState(0)
+  const [mobileMinistry, setMobileMinistry] = useState<string | null>(null)
   const location = useLocation()
   const closeTimer = useRef<number | null>(null)
   const dropdownRefs = useRef<Record<string, HTMLButtonElement | null>>({})
@@ -77,11 +80,13 @@ export default function Header() {
     setMobileOpen(false)
     setOpenDropdown(null)
     setMobileExpanded(null)
+    setMobileMinistry(null)
   }, [location.pathname])
 
   const handleEnter = (label: string) => {
     if (closeTimer.current) window.clearTimeout(closeTimer.current)
     setOpenDropdown(label)
+    if (label === 'What We Do') setSelectedMinistry(0)
   }
   const handleLeave = () => {
     closeTimer.current = window.setTimeout(() => setOpenDropdown(null), 150)
@@ -91,6 +96,7 @@ export default function Header() {
     if (e.key === 'Enter' || e.key === ' ' || e.key === 'ArrowDown') {
       e.preventDefault()
       setOpenDropdown(openDropdown === label ? null : label)
+      if (label === 'What We Do') setSelectedMinistry(0)
     } else if (e.key === 'Escape') {
       setOpenDropdown(null)
       dropdownRefs.current[label]?.focus()
@@ -99,6 +105,8 @@ export default function Header() {
 
   const isHome = location.pathname === '/'
   const solid = scrolled || !isHome
+
+  const activeMinistry = MINISTRY_AREAS[selectedMinistry]
 
   return (
     <header
@@ -146,7 +154,48 @@ export default function Header() {
                   {item.label}
                   <span className="ml-1 text-[0.7em]" aria-hidden>▾</span>
                 </button>
-                {openDropdown === item.label && (
+                {openDropdown === item.label && item.label === 'What We Do' ? (
+                  <div className="absolute left-0 top-full pt-2" onMouseEnter={() => handleEnter('What We Do')} onMouseLeave={handleLeave}>
+                    <div className="bg-white rounded-xl shadow-xl border border-sand-200 animate-fade-in w-[680px] flex">
+                      {/* Initiative list */}
+                      <div className="w-[260px] border-r border-sand-200 py-3">
+                        {MINISTRY_AREAS.map((area, idx) => (
+                          <button
+                            key={area.id}
+                            onClick={() => setSelectedMinistry(idx)}
+                            onMouseEnter={() => setSelectedMinistry(idx)}
+                            className={`block w-full text-left px-5 py-3 text-sm font-medium transition-colors ${
+                              selectedMinistry === idx
+                                ? 'text-rust-500 bg-rust-50'
+                                : 'text-teal-700 hover:bg-sand-100 hover:text-rust-500'
+                            }`}
+                          >
+                            {area.title}
+                          </button>
+                        ))}
+                        <Link
+                          to="/what-we-do"
+                          className="block px-5 py-3 text-xs font-semibold text-teal-600 hover:text-rust-500 transition-colors border-t border-sand-200 mt-2"
+                        >
+                          View all ministries →
+                        </Link>
+                      </div>
+                      {/* Content panel */}
+                      <div className="flex-1 p-6 max-h-[420px] overflow-y-auto">
+                        <h3 className="font-serif text-lg font-semibold text-teal-800 mb-2">{activeMinistry.title}</h3>
+                        <p className="text-sm text-teal-600 leading-relaxed mb-4">{activeMinistry.intro}</p>
+                        <div className="space-y-3">
+                          {activeMinistry.activities.map((act) => (
+                            <div key={act.id}>
+                              <h4 className="text-sm font-semibold text-teal-800">{act.title}</h4>
+                              <p className="text-xs text-teal-600 leading-relaxed mt-0.5 whitespace-pre-line">{act.description}</p>
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                ) : openDropdown === item.label ? (
                   <div className="absolute left-0 top-full pt-2">
                     <div className="bg-white rounded-xl shadow-xl border border-sand-200 py-2 min-w-[240px] animate-fade-in">
                       {item.children.map((child) => (
@@ -164,7 +213,7 @@ export default function Header() {
                       ))}
                     </div>
                   </div>
-                )}
+                ) : null}
               </div>
             ) : item.label === 'Donate' ? (
               <NavLink
@@ -225,7 +274,40 @@ export default function Header() {
                     {item.label}
                     <span className="text-xs" aria-hidden>{mobileExpanded === item.label ? '−' : '+'}</span>
                   </button>
-                  {mobileExpanded === item.label && (
+                  {mobileExpanded === item.label && item.label === 'What We Do' ? (
+                    <div className="flex flex-col gap-1 pl-4 mt-1">
+                      {MINISTRY_AREAS.map((area) => (
+                        <div key={area.id}>
+                          <button
+                            onClick={() => setMobileMinistry(mobileMinistry === area.id ? null : area.id)}
+                            className="px-2 py-2 text-sm font-medium text-teal-700 w-full text-left flex items-center justify-between"
+                          >
+                            {area.title}
+                            <span className="text-xs" aria-hidden>{mobileMinistry === area.id ? '−' : '+'}</span>
+                          </button>
+                          {mobileMinistry === area.id && (
+                            <div className="pl-3 pb-2">
+                              <p className="text-xs text-teal-600 leading-relaxed mb-2">{area.intro}</p>
+                              <div className="space-y-2">
+                                {area.activities.map((act) => (
+                                  <div key={act.id}>
+                                    <h4 className="text-xs font-semibold text-teal-800">{act.title}</h4>
+                                    <p className="text-xs text-teal-600 leading-relaxed mt-0.5 whitespace-pre-line">{act.description}</p>
+                                  </div>
+                                ))}
+                              </div>
+                            </div>
+                          )}
+                        </div>
+                      ))}
+                      <Link
+                        to="/what-we-do"
+                        className="px-2 py-2 text-sm font-semibold text-teal-600 hover:text-rust-500"
+                      >
+                        View all ministries →
+                      </Link>
+                    </div>
+                  ) : mobileExpanded === item.label ? (
                     <div className="flex flex-col gap-1 pl-4 mt-1">
                       {item.children.map((child) => (
                         <Link
@@ -241,7 +323,7 @@ export default function Header() {
                         </Link>
                       ))}
                     </div>
-                  )}
+                  ) : null}
                 </div>
               ) : item.label === 'Donate' ? (
                 <Link
