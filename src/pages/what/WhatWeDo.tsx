@@ -25,7 +25,7 @@ const MINISTRY_AREAS: MinistryArea[] = [
         id: 'school-of-leadership',
         title: 'School of Leadership',
         description:
-          'A holistic discipleship and leadership development program equipping young Christians and new believers from Muslim backgrounds. Through intensive training modules, contextual teaching, mentoring, and practical ministry experience, participants are grounded in a biblical and theological foundation and equipped for faithful Christian service.',
+          'The School of Leadership is a holistic discipleship and leadership development program designed to equip young Christians and new believers from Muslim backgrounds. Bringing together emerging leaders from across the region, the program combines biblical depth with practical application, preparing participants to become mature disciples of Christ and active agents of transformation within their churches, communities, and wider society.\n\nKey Focus Areas\n◆ Theological education grounded in Scripture\n◆ Discipleship and spiritual formation\n◆ Leadership development and mentoring\n◆ Practical ministry training and application\n◆ Cohort-based learning across churches and cities',
       },
       {
         id: 'seminars-workshops',
