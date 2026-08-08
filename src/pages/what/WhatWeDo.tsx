@@ -45,7 +45,7 @@ const MINISTRY_AREAS: MinistryArea[] = [
         id: 'camps-ministry',
         title: 'Camps Ministry',
         description:
-          'Camp ministry is one of the most effective avenues through which people across Central Asia come to faith in Christ. Our flagship Camp at the Lake, held on Issyk-Kul Lake in Kyrgyzstan, is the only Christian camp bringing together young people from all Central Asian countries for fellowship, worship, discipleship, and leadership development. Through Christ-centered teaching and genuine community, many hear the Gospel and begin their journey of discipleship.',
+          'Camp ministry has become one of the most effective avenues through which dozens of people across Central Asia have come to faith in Christ in recent years. We have been actively involved in organizing and leading a variety of camps, from large regional gatherings to smaller evangelistic and discipleship camps throughout the region. Our flagship event, Camp at the Lake, is the largest camp we organize\u2014the only Christian camp in Central Asia that brings together young people from all Central Asian countries. Held on the shores of Issyk-Kul Lake in Kyrgyzstan, it provides a unique opportunity for fellowship, discipleship, worship, and leadership development across national and cultural boundaries. Through evening invitational sermons, Christ-centered teaching, worship, and genuine Christian community, many hear the gospel, place their faith in Christ, and begin their journey of discipleship.',
       },
       {
         id: 'church-planting-support',
