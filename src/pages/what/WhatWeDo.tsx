@@ -37,7 +37,7 @@ const MINISTRY_AREAS: MinistryArea[] = [
         id: 'pastor-elder-training',
         title: 'Pastor & Elder Training',
         description:
-          'We come alongside pastors and elders through long-term relationships that provide encouragement, coaching, and biblical training for faithful and sustainable ministry. Our approach is deeply contextual, equipping leaders with training faithful to Scripture and relevant to Central Asian cultures and communities.',
+          'Many pastors and church leaders across Central Asia have had little or no access to formal or informal theological training. We provide biblical training that roots leaders deeply in Scripture, helps them understand the Bible, and equips them to teach and preach God\u2019s Word faithfully to their congregations.\n\nWe come alongside pastors and elders through long-term relationships, offering ongoing coaching, encouragement, and practical support. Rooted in Scripture and shaped by the cultural realities of Central Asia, our approach seeks to strengthen church leaders to serve their congregations and communities with wisdom, integrity, and confidence.',
       },
     ],
   },
