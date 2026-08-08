@@ -28,16 +28,10 @@ const MINISTRY_AREAS: MinistryArea[] = [
           'The School of Leadership is a holistic discipleship and leadership development program designed to equip young Christians and new believers from Muslim backgrounds. Bringing together emerging leaders from across the region, the program combines biblical depth with practical application, preparing participants to become mature disciples of Christ and active agents of transformation within their churches, communities, and wider society.\n\nKey Focus Areas\n◆ Theological education grounded in Scripture\n◆ Discipleship and spiritual formation\n◆ Leadership development and mentoring\n◆ Practical ministry training and application\n◆ Cohort-based learning across churches and cities',
       },
       {
-        id: 'seminars-workshops',
-        title: 'Seminars & Workshops',
+        id: 'pastors-leaders-seminars',
+        title: 'Pastors & Leaders Seminars',
         description:
-          'We provide seminars and workshops that equip church leaders and ministry teams with practical, biblically grounded training. These gatherings encourage cooperation among local churches and strengthen sustainable ministry across the region.',
-      },
-      {
-        id: 'pastor-elder-training',
-        title: 'Pastor & Elder Training',
-        description:
-          'Many pastors and church leaders across Central Asia have had little or no access to formal or informal theological training. We provide biblical training that roots leaders deeply in Scripture, helps them understand the Bible, and equips them to teach and preach God\u2019s Word faithfully to their congregations.\n\nWe come alongside pastors and elders through long-term relationships, offering ongoing coaching, encouragement, and practical support. Rooted in Scripture and shaped by the cultural realities of Central Asia, our approach seeks to strengthen church leaders to serve their congregations and communities with wisdom, integrity, and confidence.',
+          'Many pastors and church leaders across Central Asia have had little or no access to formal or informal theological training. We provide seminars and workshops that equip church leaders and ministry teams with practical, biblically grounded training. These gatherings root leaders deeply in Scripture, help them understand the Bible, and equip them to teach and preach God\u2019s Word faithfully to their congregations.\n\nWe come alongside pastors and elders through long-term relationships, offering ongoing coaching, encouragement, and practical support. These gatherings also encourage cooperation among local churches and strengthen sustainable ministry across the region. Rooted in Scripture and shaped by the cultural realities of Central Asia, our approach seeks to strengthen church leaders to serve their congregations and communities with wisdom, integrity, and confidence.',
       },
     ],
   },
