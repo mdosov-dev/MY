@@ -83,7 +83,7 @@ const MINISTRY_AREAS: MinistryArea[] = [
         id: 'emotional-psychological-support',
         title: 'Emotional & Psychological Support',
         description:
-          'We offer counselling and pastoral care to those facing emotional and psychological hardship, walking alongside individuals and families in their struggles. This ministry reflects the church\u2019s call to bear one another\u2019s burdens and embody Christ\u2019s compassion.',
+          'We provide counseling and psychological support to individuals and families facing emotional hardship, trauma, and despair. We walk alongside those affected by domestic violence, dysfunctional family environments, and other difficult life circumstances, while also offering care and support to people with disabilities and their families. This ministry reflects the Church\u2019s calling to bear witness to the Kingdom of God in tangible ways, bringing compassion, dignity, hope, and healing to those who are vulnerable and hurting.',
       },
       {
         id: 'compassion-ministries',
